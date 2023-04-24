@@ -1,0 +1,83 @@
+-- Database: alugueis
+
+CREATE DATABASE bd_alugueis;
+
+CREATE TABLE proprietario (
+  nome VARCHAR(100),
+  numero_propriedades INTEGER
+);
+
+INSERT INTO proprietario (nome, numero_propriedades)
+VALUES ('Carlos Alberto', 5),
+       ('Henrique Simão', 3),
+       ('José Bernardes', 6),
+	   ('Júnior Silva', 9);
+
+CREATE TABLE aluguel (
+  data_aluguel DATE,
+  valor_aluguel NUMERIC(10,2),
+  data_vencimento DATE
+);
+
+INSERT INTO aluguel (data_aluguel, valor_aluguel, data_vencimento)
+VALUES ('20-07-2020', 650.00, '20-07-2020'),
+       ('30-08-2019', 800.00, '30-08-2019'),
+       ('02-05-2022', 1000.00, '02-05-2022'),
+	   ('12-04-2021', 1600.00, '12-04-2021');
+
+CREATE TABLE imoveis (
+  descricao VARCHAR(200),
+  valor_total NUMERIC(10,2),
+  valor_aluguel NUMERIC(10,2)
+);
+
+INSERT INTO imoveis (descricao, valor_total, valor_aluguel)
+VALUES ('Chácara Florescer', 1500000.00, 1700.00),
+       ('Cobertura Skyline', 2000000.00, 2000.00),
+       ('Sítio verdejante', 3000000.00, 2500.00),
+	   ('Casa Serenidade', 800000.00, 1200.00);
+
+CREATE TABLE inquilino (
+  nome VARCHAR(100)
+);
+
+INSERT INTO inquilino (nome)
+VALUES ('Diego Almeida'),
+       ('Larissa Pereira'),
+       ('André Rodrigues'),
+	   ('Rafaela Pereira');
+
+CREATE TABLE corretor (
+  nome VARCHAR(100),
+  numero_contato VARCHAR(20)
+);
+
+INSERT INTO corretor (nome, numero_contato)
+VALUES ('Ana Paula', '924-701-5509'),
+       ('Marcos Vinícius', '778-493-2675'),
+       ('Juliana Silva Souza', '712-380-5402'),
+	   ('Bruno Silva', '555-983-1267');
+	   
+-- CREATE: criando uma nova tabela chamada "contrato" com as colunas "id", "data_inicio" e "data_fim"
+CREATE TABLE contrato (
+  id SERIAL PRIMARY KEY,
+  data_inicio DATE,
+  data_fim DATE
+);
+
+-- DROP: excluindo a tabela "inquilino"
+DROP TABLE contrato;
+
+-- ALTER: adicionando uma nova coluna "endereco" na tabela "imoveis"
+ALTER TABLE imoveis ADD endereco VARCHAR(200);
+
+-- SELECT-FROM-WHERE: selecionando os dados da tabela "proprietario" apenas para aqueles que possuem mais de 2 propriedades
+SELECT nome, numero_propriedades 
+FROM proprietario 
+WHERE numero_propriedades > 3;
+
+SELECT * FROM proprietario
+SELECT * FROM aluguel
+SELECT * FROM imoveis
+SELECT * FROM inquilino
+SELECT * FROM corretor
