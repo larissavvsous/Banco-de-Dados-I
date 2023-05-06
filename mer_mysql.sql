@@ -1,9 +1,10 @@
 CREATE DATABASE tabelas;
+
 USE tabelas;
 
 # query 0
 CREATE TABLE imoveis (
-  id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  id INT PRIMARY KEY AUTO_INCREMENT,
   nome VARCHAR(255) NOT NULL,
   preco_venda DECIMAL(20,8) NOT NULL,
   valor_aluguel DECIMAL(20,8) NOT NULL
@@ -14,6 +15,7 @@ INSERT INTO imoveis (nome, preco_venda, valor_aluguel) VALUES ('Chácara Floresc
 INSERT INTO imoveis (nome, preco_venda, valor_aluguel) VALUES ('Cobertura Skyline', 2.000000, 2000);
 INSERT INTO imoveis (nome, preco_venda, valor_aluguel) VALUES ('Sítio Verdejante', 3.000000, 2500);
 INSERT INTO imoveis (nome, preco_venda, valor_aluguel) VALUES ('Casa Serenidade', 800000, 1200);
+INSERT INTO imoveis (nome, preco_venda, valor_aluguel) VALUES ('Apartamento Jardim', 1500000, 3000);
 
 # query 2
 CREATE TABLE aluguel (
@@ -49,10 +51,10 @@ CREATE TABLE corretor (
 );
 
 # query 7
-INSERT INTO corretor (nome, telefone) VALUES ('Ana Paula', 9247015509);
-INSERT INTO corretor (nome, telefone) VALUES ('Marcos Vinicius', 7784932675);
-INSERT INTO corretor (nome, telefone) VALUES ('Juliana Silva Souza', 7123805402);
-INSERT INTO corretor (nome, telefone) VALUES ('Bruno Silva', 5559831267);
+INSERT INTO corretor (nome, telefone) VALUES ('Ana Paula', '9247015509');
+INSERT INTO corretor (nome, telefone) VALUES ('Marcos Vinicius', '7784932675');
+INSERT INTO corretor (nome, telefone) VALUES ('Juliana Silva Souza', '7123805402');
+INSERT INTO corretor (nome, telefone) VALUES ('Bruno Silva', '5559831267');
 
 # query 8
 CREATE TABLE proprietario (
